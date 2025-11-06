@@ -47,7 +47,7 @@ app.use("/KashiRoute", authRouter);
 app.use("/KashiRoute", bookRouter);
 
 // ===== Session (JWT) check =====
-app.get("/goKashi/session-user", (req, res) => {
+app.get("/KashiRoute/session-user", (req, res) => {
   const token = req.cookies.token;
   if (!token) {
     return res.json({ loggedIn: false, user: { userType: "guest" } });
@@ -74,5 +74,6 @@ mongoose.connect(mongoUrl)
     });
   })
   .catch(err => console.log("Error connecting MongoDB", err));
+
 
 
