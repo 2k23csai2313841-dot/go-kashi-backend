@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 // ===== CORS setup (CRITICAL) =====
 app.use(cors({
-  origin: ["https://go-kashi.vercel.app"],
+  origin: ["https://kashi-route.vercel.app"],
   credentials: true,
 }));
 
@@ -41,10 +41,10 @@ app.get('/',(req,res,next)=>{
 
 
 // ===== ROUTES =====
-app.use("/goKashi", fetchRouter);
-app.use("/goKashi/admin", adminSetRouter);
-app.use("/goKashi", authRouter);
-app.use("/goKashi", bookRouter);
+app.use("/KashiRoute", fetchRouter);
+app.use("/KashiRoute/admin", adminSetRouter);
+app.use("/KashiRoute", authRouter);
+app.use("/KashiRoute", bookRouter);
 
 // ===== Session (JWT) check =====
 app.get("/goKashi/session-user", (req, res) => {
@@ -74,4 +74,5 @@ mongoose.connect(mongoUrl)
     });
   })
   .catch(err => console.log("Error connecting MongoDB", err));
+
 
