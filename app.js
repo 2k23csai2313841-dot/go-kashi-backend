@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 // ===== CORS setup (CRITICAL) =====
 app.use(cors({
-  origin: ["https://kashika-tours-and-travels.anubhavsingh.website"],
+  origin: ["https://go-kashi.vercel.app"],
   credentials: true,
 }));
 
@@ -41,13 +41,13 @@ app.get('/',(req,res,next)=>{
 
 
 // ===== ROUTES =====
-app.use("/kashikaTravel", fetchRouter);
-app.use("/kashikaTravel/admin", adminSetRouter);
-app.use("/kashikaTravel", authRouter);
-app.use("/kashikaTravel", bookRouter);
+app.use("/goKashi", fetchRouter);
+app.use("/goKashi/admin", adminSetRouter);
+app.use("/goKashi", authRouter);
+app.use("/goKashi", bookRouter);
 
 // ===== Session (JWT) check =====
-app.get("/kashikaTravel/session-user", (req, res) => {
+app.get("/goKashi/session-user", (req, res) => {
   const token = req.cookies.token;
   if (!token) {
     return res.json({ loggedIn: false, user: { userType: "guest" } });
@@ -74,3 +74,4 @@ mongoose.connect(mongoUrl)
     });
   })
   .catch(err => console.log("Error connecting MongoDB", err));
+
