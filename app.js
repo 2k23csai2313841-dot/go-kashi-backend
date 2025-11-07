@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 // ===== CORS setup (CRITICAL) =====
 app.use(cors({
-  origin: ["https://kashi-route.vercel.app"],
+  origin: ["https://kashi-route.vercel.app","https://kashiroute.nav-code.com"],
   credentials: true,
 }));
 
@@ -74,6 +74,7 @@ mongoose.connect(mongoUrl)
     });
   })
   .catch(err => console.log("Error connecting MongoDB", err));
+
 
 
 
