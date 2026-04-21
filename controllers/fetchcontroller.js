@@ -3,10 +3,6 @@ const packageDetailsModel=require('../models/packagedetailsModel');
 const userDetailsModel=require('../models/UserModel')
 
 
-exports.checkAvailable=async (req, res, next) => {
-    return res.json({ wakeup: true });
-
-};
 exports.getCar=async (req,res,next)=>{
   const fetchCar = await cardetailsModel.find();
   res.json(fetchCar);
