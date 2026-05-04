@@ -129,9 +129,9 @@ function generateUserTypeChangeApprovalEmailHTML(
   websiteName = "Kashi Route",
 ) {
   const isProduction = process.env.NODE_ENV === "production";
-  const baseUrl = isProduction
-    ? process.env.production_Url
-    : process.env.development_Url;
+    const baseUrl = isProduction
+    ? process.env. production_url_backend
+    : process.env.development_Url_backend;
 
   const approveLink = `${baseUrl}/permissiongrant?id=${userId}&type=${newUserType}&action=approve&otp=${otp}&requestId=${requestId}`;
   const disapproveLink = `${baseUrl}/permissiongrant?id=${userId}&type=${newUserType}&action=disapprove&otp=${otp}&requestId=${requestId}`;
