@@ -19,7 +19,7 @@ router.get("/chatbot/history", chatbotController.getChatHistory);
  * GET /KashiRoute/chatbot/session/:sessionId
  * Get chat history for non-logged-in users
  */
-router.get("/chatbot/session/:sessionId", chatbotController.getSessionChat);
+router.get("/chatbot/session/history", chatbotController.getSessionChat);
 
 /**
  * DELETE /KashiRoute/chatbot/clear

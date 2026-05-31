@@ -635,7 +635,7 @@ exports.getChatHistory = async (req, res) => {
  */
 exports.getSessionChat = async (req, res) => {
   try {
-    const { sessionId } = req.params;
+    const  sessionId  = req.cookies.chatbotSessionId;
 
     // Validate session ID
     if (!sessionId || sessionId.trim() === "") {
