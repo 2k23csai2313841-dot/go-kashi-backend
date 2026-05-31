@@ -244,7 +244,7 @@ exports.postChatbot = async (req, res) => {
             // Check if topic is dangerous/harmful
             if (chatQuery.isDangerousTopic(question)) {
               const dangerousResponse =
-                "I can't help with that topic as it may be harmful or dangerous. Please ask me something else! 🙂";
+                "I cannot provide assistance with this topic as it involves potentially harmful or dangerous content. Please inquire about travel services or vehicle bookings instead.";
 
               const chatEntry = new ChatBot({
                 userId: userId,
@@ -474,7 +474,7 @@ exports.postChatbot = async (req, res) => {
       // Check if topic is dangerous/harmful
       if (chatQuery.isDangerousTopic(question)) {
         const dangerousResponse =
-          "I can't help with that topic as it may be harmful or dangerous. Please ask me something else! 🙂";
+          "I cannot provide assistance with this topic as it involves potentially harmful or dangerous content. Please inquire about travel services or vehicle bookings instead.";
 
         const chatEntry = new ChatBot({
           userId: null,
