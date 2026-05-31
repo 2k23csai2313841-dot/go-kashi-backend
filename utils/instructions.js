@@ -301,7 +301,7 @@ ${adminInfo}
 
 USER'S CURRENT QUESTION: "${question}"
 
-Now respond naturally to their question. Remember: Answer ONLY what they ask. Be warm and helpful.`;
+Please provide a professional and formal response to the user's inquiry. Address the question directly and comprehensively. Maintain formal language throughout your response.`;
 };
 
 // ==============================================================================
@@ -326,7 +326,7 @@ exports.buildNonLoginPrompt = (
   const packagesContext = exports.buildPackagesContext(packageDetails);
   const historyContext = exports.buildHistoryContext(previousMessages);
 
-  const loginTip = `💡 TIP: Login to your account for personalized recommendations and saved preferences!`;
+  const notLoginStatus = `NOTE: User is not currently logged in.`;
 
   return `${role}
 
@@ -348,7 +348,7 @@ ${carsContext}
 
 ${packagesContext}
 
-${loginTip}
+${notLoginStatus}
 
 ═══════════════════════════════════════════════════════════════════
 
@@ -362,7 +362,7 @@ ${adminInfo}
 
 USER'S CURRENT QUESTION: "${question}"
 
-Now respond naturally to their question. Remember: Answer ONLY what they ask. Be warm and helpful.`;
+Please provide a professional and formal response to the user's inquiry. Address the question directly and comprehensively. Maintain formal language throughout your response.`;
 };
 
 // ==============================================================================
