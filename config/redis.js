@@ -1,10 +1,8 @@
 const redis = require("redis");
 
-// Create Redis client
+// Create Redis client using REDIS_URL
 const redisClient = redis.createClient({
-  host: process.env.REDIS_HOST || "localhost",
-  port: process.env.REDIS_PORT || 6379,
-  password: process.env.REDIS_PASSWORD || undefined,
+  url: process.env.REDIS_URL,
   retry_strategy: (options) => {
     if (options.error && options.error.code === "ECONNREFUSED") {
       return new Error("Redis connection refused");
@@ -25,6 +23,7 @@ redisClient.on("connect", () => {
 });
 
 redisClient.on("error", (err) => {
+  console.log()
   console.error("Redis connection error:", err);
 });
 
