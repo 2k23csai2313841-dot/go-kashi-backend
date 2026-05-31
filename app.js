@@ -17,7 +17,9 @@ const adminSetRouter = require("./router/adminResourcesSet");
 const paymentRouter = require("./router/paymentRouter");
 const startRouter = require("./router/startRouter");
 const contactRouter = require("./router/contactRouter");
+const chatbotRouter = require("./router/chatbot.router");
 const mongoDb = require("./config/db");
+const redisClient = require("./config/redis"); // Redis initialization
 
 // ===== App & DB setup =====
 const app = express();
@@ -35,14 +37,12 @@ app.use(express.json({ verify: rawBodySaver }));
 app.use(cookieParser());
 
 // ===== CORS setup (CRITICAL) =====
-const development_url=process.env.development_url;
-const production_url=process.env.production_url;
-const state=process.env.NODE_ENV;
+const development_url = process.env.development_url;
+const production_url = process.env.production_url;
+const state = process.env.NODE_ENV;
 app.use(
   cors({
-    origin: [
- state=="production"?production_url:development_url
-    ],
+    origin: [state == "production" ? production_url : development_url],
     credentials: true,
   }),
 );
@@ -50,6 +50,7 @@ app.use(
 // ===== ROUTES =====
 app.use("/", startRouter);
 app.use("/KashiRoute", fetchRouter);
+app.use("/KashiRoute", chatbotRouter);
 app.use("/KashiRoute", contactRouter);
 app.use("/KashiRoute/admin", adminSetRouter);
 app.use("/KashiRoute", authRouter);
@@ -58,9 +59,8 @@ app.use("/KashiRoute/payment", paymentRouter);
 
 // ===== Start server =====
 
-app.listen(port, async() => {
+app.listen(port, async () => {
   await mongoDb();
+  // Redis is automatically initialized when config/redis.js is imported
   console.log(`Server Running`);
 });
-
-// hello new push

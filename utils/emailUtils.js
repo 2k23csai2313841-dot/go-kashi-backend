@@ -129,7 +129,7 @@ function generateUserTypeChangeApprovalEmailHTML(
   websiteName = "Kashi Route",
 ) {
   const isProduction = process.env.NODE_ENV === "production";
-    const baseUrl = isProduction
+  const baseUrl = isProduction
     ? process.env. production_url_backend
     : process.env.development_Url_backend;
 
