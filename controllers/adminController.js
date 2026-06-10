@@ -157,7 +157,7 @@ exports.getAllAdminHistory = async (req, res, next) => {
  */
 exports.getUser = async (req, res, next) => {
   try {
-    const users = await userDetailsModel
+    const users = await UserModel
       .find()
       .select("userName email phone location userType");
 
